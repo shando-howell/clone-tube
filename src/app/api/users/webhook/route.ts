@@ -75,7 +75,15 @@ export async function POST(req: Request) {
   }
 
   if (eventType === "user.updated") {
-    
+    const { data } = evt;
+
+    await db
+        .update(users)
+        .set({
+            name: `${data.first_name} ${data.last_name}`,
+            imageUrl: data.image_url,
+        })
+        .where(eq(users.clerkId, data.id))
   }
 
   return new Response('Webhook received', { status: 200 })
