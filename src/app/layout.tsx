@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs"
 import { TRPCProvider } from "@/trpc/client";
 
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <TRPCProvider>
+            <Toaster />
             {children}
           </TRPCProvider>
         </body>
