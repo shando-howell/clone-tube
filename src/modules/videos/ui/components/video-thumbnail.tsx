@@ -1,5 +1,6 @@
 import { formatDuration } from "@/lib/utils";
 import Image from "next/image"
+import { THUMBNAIL_FALLBACK } from "../../constants";
 
 interface VideoThumbnailProps {
   title: string;
@@ -26,7 +27,7 @@ const VideoThumbnail = ({
             />
             <Image 
               unoptimized={!!previewUrl}
-              src={previewUrl ?? "/placeholder.jpg"} 
+              src={previewUrl ?? THUMBNAIL_FALLBACK} 
               alt={title} 
               fill 
               className="size-full object-cover opacity-0 group-hover:opacity-100"
